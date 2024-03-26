@@ -1,31 +1,32 @@
 <div class="pt-5 d-flex flex-wrap container">
-    <div class="row">
+    <div class="row gy-5">
        <div class="col-sm-6 col-lg-4 card-justify-height" *ngFor="let blog of allBlogs">
+        <a [href]="blog.url" target="_blank" rel="noopener noreferrer" class="text-decoration-none" >
             <p-card>
                 <div class="d-flex flex-column justify-content-start card-controller">
-                <div>
-                    <img alt="Card" src="assets/images/Background pattern.png"  class="w-100"/>
+                <div class="custom-cover-image overflow-hidden">
+                    <img alt="Card" [src]="blog.social_image"  class="w-100 h-100 cover"/>
                 </div>
-                <p class="sub-header">blog</p>
+                <p class="sub-header">{{blog.tag_list[0]}}</p>
                 <div class="d-flex justify-content-between align-items-center">
-                    <h2 class="header-title">lorem ipsum dolor</h2>
+                    <h2 class="header-title">{{blog.title}}</h2>
                     <div class="">
                         <i class="fa-solid fa-arrow-up custom-arrow"></i>
                     </div>
                 </div>
-                    <p class=" mb-0 cardbody-content">How do you create compelling presentations that wow your colleagues and impress your managers?</p>
+                    <p class=" mb-0 cardbody-content">{{blog.description}}</p>
                     <div class="d-flex align-content-end custom-footer">
                         <div class="img-container me-1">
-                            <img class="w-100 rounded-circle" src="assets/images/Background pattern.png" alt="">
+                            <img class="w-100 rounded-circle h-100" [src]="blog.social_image" alt="blogger image">
                         </div>
                         <div class="d-flex flex-column">
-                            <p class="blogger fw-medium mb-0">sfgfg</p>
-                            <p class="date mb-0">sdsdfs</p>
+                            <p class="blogger fw-medium mb-0">{{blog.user.name}}</p>
+                            <p class="date mb-0">{{blog.published_at | date:'dd MMM yyyy'}}</p>
                         </div>
                     </div>
                 </div>
             </p-card>
-          
+        </a>
         </div>
  
 </div>

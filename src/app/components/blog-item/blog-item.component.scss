@@ -30,8 +30,16 @@
 
 .card-justify-height{
     height: 36.25rem !important;
-    
 }
+
+.cover{
+    transition: all 1.5s;
+}
+
+.card-justify-height:hover .cover{
+    scale: 1.2;
+}
+
 
 .img-container{
     width: 2.5rem;
@@ -43,6 +51,7 @@
     font-size: 0.875rem;
     color: #6941C6;
     margin-bottom: 0.75rem !important;
+    margin-top: 2rem;
 }
 
 .header-title{
@@ -86,4 +95,9 @@
 .custom-footer{
     margin-top: auto;
     align-self: flex-start;
+}
+
+
+.custom-cover-image{
+    height: 15rem;
 }
