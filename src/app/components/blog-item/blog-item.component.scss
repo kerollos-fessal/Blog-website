@@ -1,0 +1,89 @@
+::ng-deep .p-card .p-card-title{
+    font-size: 1.5rem;
+    color:#101828 ;
+    font-weight: 600;
+    line-height: 2rem;
+}
+
+::ng-deep .p-card{
+    box-shadow: 0px 4px 6px -2px #10182808;
+    box-shadow: 0px 12px 16px -4px #10182814;
+    border-radius: 0;  
+    padding: 1.5rem 1.5rem 2rem 1.5rem;
+    height: 100%;
+}
+
+::ng-deep .p-card .p-card-body{
+    padding: 0;
+    height: 100%;
+}
+
+::ng-deep .p-card .p-card-footer{
+   align-self: flex-end;
+}
+
+
+::ng-deep .p-card .p-card-content{
+    height: 100%;
+    padding: 0;
+}
+
+.card-justify-height{
+    height: 36.25rem !important;
+    
+}
+
+.img-container{
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.sub-header{
+    font-weight: 600;
+    font-size: 0.875rem;
+    color: #6941C6;
+    margin-bottom: 0.75rem !important;
+}
+
+.header-title{
+    font-weight: 600;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    color: #101828;
+}
+
+.custom-arrow{
+ transform: rotate(45deg);
+ color: #101828;
+}
+
+
+.cardbody-content{
+    color: #667085;
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
+
+.blogger{
+    color: #101828;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+}
+
+.date{
+    color: #667085;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    
+}
+
+.card-controller{
+    height: 100%;
+}
+
+
+.custom-footer{
+    margin-top: auto;
+    align-self: flex-start;
+}
