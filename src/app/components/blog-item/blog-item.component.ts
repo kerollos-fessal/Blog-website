@@ -24,6 +24,7 @@ this._blogsService.getBlogs().subscribe({
   },
   error:(err)=>{
     console.log(err);
+    
   }
 })
 }
