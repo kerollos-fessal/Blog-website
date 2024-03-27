@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-
+import { BlogsService } from 'src/app/services/blogs.service';
+declare var $: any; 
 @Component({
   selector: 'app-errors',
   templateUrl: './errors.component.html',
@@ -7,4 +8,12 @@ import { Component } from '@angular/core';
 })
 export class ErrorsComponent {
 
+
+  constructor( private _blogsService: BlogsService){}
+
+  reloadBlogs(){
+    this._blogsService.getBlogs(9).subscribe({
+
+    })
+  }
 }

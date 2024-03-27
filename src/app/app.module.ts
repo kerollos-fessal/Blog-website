@@ -7,11 +7,17 @@ import { SearchPipe } from './pipes/search.pipe';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
 import { AllblogsComponent } from './components/allblogs/allblogs.component';
 import { BlogItemComponent } from './components/blog-item/blog-item.component';
-import { LoaderComponent } from './shared/loader/loader.component';
 import { ErrorsComponent } from './shared/errors/errors.component';
 import { PaginatorComponent } from './components/paginator/paginator.component';
 import { HomeComponent } from './components/home/home.component';
 import { FormsModule } from '@angular/forms';
+import { CardModule } from 'primeng/card';
+import { ButtonModule } from 'primeng/button';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { HttpInterceptorInterceptor } from './shared/http-interceptor.interceptor';
+import { LoaderComponent } from './shared/loader/loader.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -29,9 +35,20 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    CardModule,
+    ButtonModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatProgressSpinnerModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpInterceptorInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
