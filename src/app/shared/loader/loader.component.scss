@@ -18,6 +18,12 @@
     color: #42307D;
   }
 
+
+::ng-deep .mat-mdc-progress-spinner{
+  color: #42307D;
+
+}
+
   @media screen and (max-width: 992px) {
     .faT {
       left: 70% !important;

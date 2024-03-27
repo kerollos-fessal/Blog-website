@@ -11,19 +11,25 @@
       </ng-container>
       <ng-template #noDataTemplate>
         <div class="col-9 mx-auto text-center">
-          <div class="alert alert-danger fw-bold py-5 fs-4">
-            No blogs available Right now!
-          </div>
+          <app-errors></app-errors>
         </div>
       </ng-template>
-      <div *ngIf="(!(allBlogs.length == 0) && (allBlogs | search: searchKey).length === 0)">
+      <div
+        *ngIf="
+          !(allBlogs.length == 0) &&
+          (allBlogs | search : searchKey).length === 0
+        "
+      >
         <div class="col-9 mx-auto text-center">
-          <div class="alert alert-danger fw-bold py-4 fs-5">
+          <div class="alert alert-danger shadow fw-bold py-4 fs-5">
             No blogs found!
           </div>
         </div>
       </div>
     </div>
   </div>
-  <app-paginator  *ngIf="(allBlogs | search: searchKey).length !== 0"></app-paginator>
+  <app-paginator
+    *ngIf="(allBlogs | search : searchKey).length !== 0"
+  ></app-paginator>
 </section>
+

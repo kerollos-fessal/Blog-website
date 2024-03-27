@@ -16,6 +16,9 @@ import { ButtonModule } from 'primeng/button';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { HttpInterceptorInterceptor } from './shared/http-interceptor.interceptor';
 import { LoaderComponent } from './shared/loader/loader.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +38,9 @@ import { LoaderComponent } from './shared/loader/loader.component';
     FormsModule,
     CardModule,
     ButtonModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     {

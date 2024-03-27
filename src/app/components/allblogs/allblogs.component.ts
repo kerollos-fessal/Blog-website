@@ -12,7 +12,7 @@ export class AllblogsComponent implements OnInit{
   allBlogs: Blog[]= [];
   limit:number =9
   searchKey: string= '';
-  show: boolean = true
+  errShow: boolean = false;
   constructor(private _blogsService: BlogsService){
   }
 
@@ -34,8 +34,8 @@ this._blogsService.getBlogs(this.limit).subscribe({
     this.allBlogs = res;
   },
   error:(err)=>{
+    this.errShow = true;
     console.log(err);
-    
   }
 })
 }
