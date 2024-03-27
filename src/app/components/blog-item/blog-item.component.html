@@ -1,7 +1,7 @@
-<div class="pt-5 container ">
+<div class="pt-5 container mb-5">
     <div class="row gy-5">
 <ng-container *ngIf="allBlogs.length > 0; else noDataTemplate">
-    <div class="col-sm-6 col-lg-4 card-justify-height" *ngFor="let blog of allBlogs">
+    <div class="col-sm-6 col-lg-4 card-justify-height" *ngFor="let blog of allBlogs | search: searchKey">
         <a [href]="blog.url" target="_blank" rel="noopener noreferrer" class="text-decoration-none" >
             <p-card>
                 <div class="d-flex flex-column justify-content-start card-controller">

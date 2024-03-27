@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { Blog } from 'src/app/interfaces/blog';
 import { BlogsService } from 'src/app/services/blogs.service';
 
@@ -10,17 +11,28 @@ import { BlogsService } from 'src/app/services/blogs.service';
 export class BlogItemComponent implements OnInit{
 
   allBlogs: Blog[]= [];
-  constructor(private _blogsService: BlogsService){}
+  limit:number =9
+  searchKey: string= '';
+  constructor(private _blogsService: BlogsService){
+  }
 
 ngOnInit(): void {
-    this.getAllBlogs()
+  this._blogsService.limit.subscribe((res)=>{
+    this.limit = res;
+    this.getAllBlogs();
+   });
+
+   this._blogsService.searchValue.subscribe((res)=>{
+    this.searchKey = res;
+   });
+
 }
 
 getAllBlogs(){
-this._blogsService.getBlogs().subscribe({
+this._blogsService.getBlogs(this.limit).subscribe({
   next:(res)=>{
     // console.log(res);
-    this.allBlogs = res
+    this.allBlogs = res;
   },
   error:(err)=>{
     console.log(err);
