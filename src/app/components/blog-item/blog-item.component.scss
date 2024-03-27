@@ -28,15 +28,12 @@
     padding: 0;
 }
 
-.card-justify-height{
-    height: 36.25rem !important;
-}
 
 .cover{
     transition: all 1.5s;
 }
 
-.card-justify-height:hover .cover{
+a:hover .cover{
     scale: 1.2;
 }
 
