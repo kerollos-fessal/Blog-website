@@ -19,7 +19,7 @@ ngOnInit(): void {
 getAllBlogs(){
 this._blogsService.getBlogs().subscribe({
   next:(res)=>{
-    console.log(res);
+    // console.log(res);
     this.allBlogs = res
   },
   error:(err)=>{

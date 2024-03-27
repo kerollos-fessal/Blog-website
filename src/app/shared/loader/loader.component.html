@@ -1,1 +1,9 @@
-<p>loader works!</p>
+<div class="overlay" *ngIf="isLoading | async">
+    <div class="fa">
+
+      <div class="d-flex flex-column">
+        <i class="fa-solid fa-spinner fa-spin fa-5x mb-5"></i>
+      </div>
+    </div>
+    <div class="fw-bold text-center fs-2 fw-bold top-50 pt-5 position-relative">Blogs are on their way...</div>
+  </div>
