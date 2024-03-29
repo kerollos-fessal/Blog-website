@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Blog } from 'src/app/interfaces/blog';
 import { BlogsService } from 'src/app/services/blogs.service';
 
@@ -7,29 +7,30 @@ import { BlogsService } from 'src/app/services/blogs.service';
   templateUrl: './allblogs.component.html',
   styleUrls: ['./allblogs.component.scss']
 })
-export class AllblogsComponent implements OnInit{
+export class AllblogsComponent implements OnInit, OnDestroy{
 
   allBlogs: Blog[]= [];
   limit:number =9
   searchKey: string= '';
   errShow: boolean = false;
+  subObject: any = {};
   constructor(private _blogsService: BlogsService){
   }
 
 ngOnInit(): void {
-  this._blogsService.limit.subscribe((res)=>{
+ this.subObject['limit'] = this._blogsService.limit.subscribe((res)=>{
     this.limit = res;
     this.getAllBlogs();
    });
 
-   this._blogsService.searchValue.subscribe((res)=>{
+ this.subObject['searchValue'] = this._blogsService.searchValue.subscribe((res)=>{
     this.searchKey = res;
    });
 
 }
 
 getAllBlogs(){
-this._blogsService.getBlogs(this.limit).subscribe({
+this.subObject['allBlogs'] =  this._blogsService.getBlogs(this.limit).subscribe({
   next:(res)=>{
     this.allBlogs = res;
   },
@@ -40,4 +41,10 @@ this._blogsService.getBlogs(this.limit).subscribe({
 })
 }
 
+
+ngOnDestroy(): void {
+  Object.keys(this.subObject).forEach((key) => {
+    this.subObject[key].unsubscribe();
+  });
+}
 }

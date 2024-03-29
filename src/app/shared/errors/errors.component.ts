@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { BlogsService } from 'src/app/services/blogs.service';
 declare var $: any; 
 @Component({
@@ -6,14 +6,20 @@ declare var $: any;
   templateUrl: './errors.component.html',
   styleUrls: ['./errors.component.scss']
 })
-export class ErrorsComponent {
-
+export class ErrorsComponent implements OnDestroy{
+subObject:any = {}; 
 
   constructor( private _blogsService: BlogsService){}
 
   reloadBlogs(){
-    this._blogsService.getBlogs(9).subscribe({
+  this.subObject['getBlogs'] = this._blogsService.getBlogs(9).subscribe({
 
     })
   }
+
+ngOnDestroy(): void {
+  Object.keys(this.subObject).forEach((key) => {
+    this.subObject[key].unsubscribe();
+  });
+}
 }
